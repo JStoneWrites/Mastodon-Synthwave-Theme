@@ -1,0 +1,139 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+/* synthwave for mastodon 4.7 */
+
+/* dark everywhere, incl. logged-out pages */
+html,
+html[data-color-scheme='dark'],
+html[data-color-scheme='light'],
+html:not([data-color-scheme]) {
+  color-scheme: dark;
+
+  /* text */
+  --color-text-primary: #ece6ff;
+  --color-text-secondary: #b9aee0;
+  --color-text-tertiary: #9a8bc7;
+  --color-text-inverted: #0d0221;
+  --color-text-brand: #00f0ff;
+  --color-text-brand-on-inverted: #7b2ff7;
+  --color-text-favourite-highlight: #ff2bd6;
+  --color-text-disabled: #5a3a9a;
+  --color-text-on-disabled: #9a8bc7;
+
+  /* backgrounds */
+  --color-bg-primary: #0d0221;
+  --color-bg-secondary: #170a3a;
+  --color-bg-tertiary: #2a1260;
+  --color-bg-highlight: rgb(255 43 214 / 8%);
+  --color-bg-overlay-highlight: rgb(255 43 214 / 8%);
+  --color-bg-inverted: #f7f3ff;
+  --color-bg-disabled: #3a1c7a;
+  --color-bg-brand-base: #8a2be2;
+  --color-bg-brand-base-hover: #ff2bd6;
+  --color-bg-brand-soft: #3d1a8a;
+  --color-bg-brand-softest: #1f0d4d;
+
+  /* borders */
+  --color-border-primary: #3a1c7a;
+  --color-border-strong: #ece6ff;
+  --color-border-brand: #ff2bd6;
+  --color-border-brand-soft: #5f22c4;
+
+  /* charts, rich text */
+  --color-graph-primary-stroke: #00f0ff;
+  --color-graph-primary-fill: #1f0d4d;
+  --rich-text-container-color: #2a0a4a;
+  --rich-text-text-color: #ff9be8;
+  --rich-text-decorations-color: #7b2ff7;
+}
+
+/* logo wordmark */
+html .invert-on-dark { filter: invert(1); }
+html .invert-on-light { filter: none; }
+
+/* neon */
+.column-header {
+  border-bottom: 1px solid #ff2bd6;
+  box-shadow: 0 2px 14px rgb(255 43 214 / 35%);
+}
+.column,
+.drawer {
+  box-shadow: 0 0 18px rgb(157 78 221 / 35%);
+}
+.button:not(.button-secondary):not(.button-tertiary) {
+  background: linear-gradient(90deg, #7b2ff7, #ff2bd6);
+  box-shadow: 0 0 12px rgb(255 43 214 / 50%);
+}
+.button:not(.button-secondary):not(.button-tertiary):hover,
+.button:not(.button-secondary):not(.button-tertiary):focus {
+  background: linear-gradient(90deg, #00f0ff, #7b2ff7);
+  box-shadow: 0 0 16px rgb(0 240 255 / 60%);
+}
+/* gradient covers the border box too */
+.button:not(.button-secondary):not(.button-tertiary),
+.button:not(.button-secondary):not(.button-tertiary):hover,
+.button:not(.button-secondary):not(.button-tertiary):focus {
+  background-origin: border-box;
+}
+a:hover {
+  text-shadow: 0 0 8px currentcolor;
+}
+
+/* stars */
+html {
+  background:
+    radial-gradient(ellipse at 50% 120%, rgb(255 43 214 / 30%), transparent 55%),
+    linear-gradient(180deg, #0d0221 0%, #1a0638 100%) fixed;
+  min-height: 100%;
+}
+body {
+  background: transparent;
+  min-height: 100vh;
+}
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  image-rendering: pixelated;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640' shape-rendering='crispEdges'%3E%3Crect x='232' y='378' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='128' y='196' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='86' y='140' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='518' y='214' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='30' y='470' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='464' y='398' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='586' y='196' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='90' y='496' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='20' y='272' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='116' y='264' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='64' y='394' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='110' y='58' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='240' y='88' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='594' y='144' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='552' y='38' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='198' y='150' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='598' y='454' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='570' y='364' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='138' y='162' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='544' y='320' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='506' y='514' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='316' y='152' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='540' y='290' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='518' y='558' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='352' y='248' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='302' y='350' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='272' y='34' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='260' y='384' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='426' y='178' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='26' y='206' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='306' y='118' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='388' y='350' width='2' height='2' fill='%23b9aee0'/%3E%3Crect x='236' y='142' width='2' height='2' fill='%23ece6ff'/%3E%3Crect x='416' y='426' width='2' height='2' fill='%23b9aee0'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640' shape-rendering='crispEdges'%3E%3Crect x='602' y='70' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='96' y='34' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='108' y='532' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='156' y='516' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='152' y='618' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='194' y='16' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='348' y='394' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='306' y='358' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='374' y='2' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='214' y='62' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='592' y='176' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='344' y='440' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='122' y='84' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='618' y='228' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='484' y='158' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='124' y='110' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='128' y='450' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='482' y='576' width='4' height='4' fill='%23ece6ff'/%3E%3Crect x='368' y='466' width='4' height='4' fill='%2300f0ff'/%3E%3Crect x='52' y='202' width='4' height='4' fill='%2300f0ff'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640' shape-rendering='crispEdges'%3E%3Crect x='460' y='114' width='4' height='4' fill='%23ff2bd6'/%3E%3Crect x='456' y='118' width='12' height='4' fill='%23ff2bd6'/%3E%3Crect x='460' y='122' width='4' height='4' fill='%23ff2bd6'/%3E%3Crect x='220' y='4' width='4' height='4' fill='%23ff2bd6'/%3E%3Crect x='216' y='8' width='12' height='4' fill='%23ff2bd6'/%3E%3Crect x='220' y='12' width='4' height='4' fill='%23ff2bd6'/%3E%3Crect x='376' y='442' width='4' height='4' fill='%23ff2bd6'/%3E%3Crect x='372' y='446' width='12' height='4' fill='%23ff2bd6'/%3E%3Crect x='376' y='450' width='4' height='4' fill='%23ff2bd6'/%3E%3C/svg%3E");
+  background-size: 640px 640px, 640px 640px, 640px 640px;
+  animation: starscape 80s linear infinite;
+}
+@keyframes starscape {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 0 640px, 0 1280px, 0 1920px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
+/* see-through sidebars */
+@media (min-width: 760px) {
+  .drawer__inner { background: transparent; }
+}
+
+/* right half is a flipped copy */
+body::before { inset: 0 50% 0 0; }
+body::after { inset: 0 0 0 50%; transform: scaleX(-1); }
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
+}
+
+/* frosted right sidebar */
+@media (min-width: 760px) {
+  .columns-area__panels__pane--navigational .navigation-panel {
+    background: rgb(13 2 33 / 30%);
+    -webkit-backdrop-filter: blur(3px) saturate(130%);
+    backdrop-filter: blur(3px) saturate(130%);
+    border-radius: 8px;
+    border: 1px solid rgb(157 78 221 / 35%);
+  }
+}
